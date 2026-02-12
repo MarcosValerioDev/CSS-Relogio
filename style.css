@@ -1,35 +1,100 @@
-*
-{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
-body
-{
+
+:root{
+    --currentColor: #091921;
+}
+
+body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #091921;
+    background: var(--currentColor);
 }
-.clock
-{
+/* 
+.boxThemes{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #131415;
+    border-radius: 6px;
+    padding: 6px;
+    color: #245c0c;
+} */
+
+.boxThemes__themeTitle{
+    color: #4e535f;
+    font-size: 1em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.boxThemes__themes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin-bottom: 4px;
+}
+
+
+.themes__theme--color{
+    background-color: #091921;
+}
+
+.themes__theme--colorGreen{
+    background-color: #26630e;
+}
+
+.themes__theme--colorOrange{
+    background-color: #7d1555;
+}
+
+.themes__theme--colorBlue{
+    background-color: #0e3065;
+}
+
+.themes__theme--colorBlack{
+    background-color: #1a1819;
+}
+
+.themes__theme--colorRed{
+    background-color: #3e0505;
+}
+
+.clock {
     width: 350px;
     height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #091921 url(clock.png);
+    background: var(--currentColor) url(clock.png);
     background-size: cover;
     border-radius: 50%;
-    border: 4px solid #091921;
-    box-shadow: 0 -15px 15px rgba(255,255,255,0.05),
-                0 20px 20px rgba(0,0,0,0.3),
-                inset 0 -15px 15px rgba(255,255,255,0.05),
-                inset 0 20px 20px rgba(0,0,0,0.3);
+    border: 4px solid var(--currentColor);
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+        0 20px 20px rgba(0, 0, 0, 0.3),
+        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+        inset 0 20px 20px rgba(0, 0, 0, 0.3);
 }
-.clock::before
-{
+
+.clock::before {
     content: '';
     position: absolute;
     width: 15px;
@@ -38,46 +103,33 @@ body
     z-index: 100000;
     border-radius: 50%;
 }
+
 .hour,
 .min,
-.sec
-{
+.sec {
     position: absolute;
 }
-.hour, .hr
-{
-    width: 160px;
-    height: 160px;
-}
-.min, .mn
-{
-    width: 190px;
-    height: 190px;
-}
-.sec, .sc
-{
-    width: 230px;
-    height: 230px;
-}
-.hr,.mn,.sc
-{
+
+.hr,
+.mn,
+.sc {
     display: flex;
     justify-content: center;
     position: absolute;
     border-radius: 50%;
 }
-.hr::before
-{
+
+.hr::before {
     content: '';
     position: absolute;
     width: 8px;
     height: 80px;
-    background: #ff105e;
+    background: #810202;
     z-index: 10;
     border-radius: 6px 6px 0 0;
 }
-.mn::before
-{
+
+.mn::before {
     content: '';
     position: absolute;
     width: 4px;
@@ -86,8 +138,8 @@ body
     z-index: 11;
     border-radius: 6px 6px 0 0;
 }
-.sc::before
-{
+
+.sc::before {
     content: '';
     position: absolute;
     width: 2px;
@@ -95,4 +147,144 @@ body
     background: #008eff;
     z-index: 12;
     border-radius: 6px 6px 0 0;
+}
+
+@media screen and (orientation: landscape) {
+    .boxThemes{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #131415;
+    border-radius: 6px;
+    padding: 6px;
+    color: #245c0c;
+}
+
+.boxThemes__themeTitle{
+    font-size: 1em;
+    text-align: center;
+}
+
+.boxThemes__themes{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+}
+
+.themes__theme{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: solid 1px #3e3c3c;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+}
+
+    .clock {
+        width: calc(100vh - 50px);
+        height: calc(100vh - 50px);
+    }
+
+    .hour,
+    .hr {
+        width: 160px;
+        height: calc(1.60 * 20vh);
+    }
+
+    .min,
+    .mn {
+        width: 190px;
+        height: calc(1.90 * 20vh);
+    }
+
+    .sec,
+    .sc {
+        width: 230px;
+        height: calc(2.30 * 20vh);
+    }
+
+    .hr::before {
+        height: calc(0.80 * 20vh);
+    }
+
+    .mn::before {
+        height: calc(0.90 * 20vh);
+    }
+
+    .sc::before {
+        height: calc(1.50 * 20vh);
+    }
+}
+
+@media screen and (orientation: portrait) {
+.boxThemes{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #131415;
+    border-radius: 6px;
+    padding: 6px;
+    color: #245c0c;
+}
+
+
+.boxThemes__themeTitle{
+    font-size: 2em;
+    text-align: center;
+}
+
+.themes__theme{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: solid 1px #3e3c3c;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+
+    .clock {
+        width: calc(100vw - 50px);
+        height: calc(100vw - 50px);
+    }
+
+    .hour,
+    .hr {
+        width: 160px;
+        height: calc(1.60 * 20vw);
+    }
+
+    .min,
+    .mn {
+        width: 190px;
+        height: calc(1.90 * 20vw);
+    }
+
+    .sec,
+    .sc {
+        width: 230px;
+        height: calc(2.30 * 20vw);
+    }
+
+    .hr::before {
+        height: calc(0.80 * 20vw);
+    }
+
+    .mn::before {
+        height: calc(0.90 * 20vw);
+    }
+
+    .sc::before {
+        height: calc(1.50 * 20vw);
+    }
 }

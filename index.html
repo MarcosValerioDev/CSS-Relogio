@@ -1,11 +1,25 @@
 <!doctype html>
 <html>
+
 <head>
 	<meta charset="utf-8">
-	<title>Javascript Clock UI Dark</title>
+	<title>Clock Javascript</title>
+
 	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+	<div class="boxThemes">
+		<span class="boxThemes__themeTitle">Temas</span>
+		<div class="boxThemes__themes">
+			<div class="themes__theme themes__theme--color" onclick="ChangeTheme(0)"></div>
+			<div class="themes__theme themes__theme--colorGreen" onclick="ChangeTheme(1)"></div>
+			<div class="themes__theme themes__theme--colorOrange" onclick="ChangeTheme(2)"></div>
+			<div class="themes__theme themes__theme--colorBlue" onclick="ChangeTheme(3)"></div>
+			<div class="themes__theme themes__theme--colorBlack" onclick="ChangeTheme(4)"></div>
+			<div class="themes__theme themes__theme--colorRed" onclick="ChangeTheme(5)"></div>
+		</div>
+	</div>
 	<div class="clock">
 		<div class="hour">
 			<div class="hr" id="hr"></div>
@@ -18,6 +32,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+		const estilos = getComputedStyle(document.documentElement);
 		const deg = 6;
 		const hr = document.querySelector("#hr");
 		const mn = document.querySelector("#mn");
@@ -27,12 +42,37 @@
 			let hh = day.getHours() * 30;
 			let mm = day.getMinutes() * deg;
 			let ss = day.getSeconds() * deg;
-			hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+			hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
 			mn.style.transform = `rotateZ(${mm}deg)`;
 			sc.style.transform = `rotateZ(${ss}deg)`;
 		})
+
+
+		function ChangeTheme(idTheme) {
+
+			switch (idTheme) {
+				case 0: //default
+					document.documentElement.style.setProperty('--currentColor', '#091921');
+					break;
+				case 1: //green
+					document.documentElement.style.setProperty('--currentColor', '#26630e');
+					break;
+				case 2: //orange
+					document.documentElement.style.setProperty('--currentColor', '#7d1555');
+					break;
+				case 3: //blue
+					document.documentElement.style.setProperty('--currentColor', '#0e3065');
+					break;
+				case 4: //black
+					document.documentElement.style.setProperty('--currentColor', '#1a1819');
+					break;
+				case 5: //red
+					document.documentElement.style.setProperty('--currentColor', '#3e0505');
+					break;
+			}
+		}
+
 	</script>
 </body>
+
 </html>
-
-
