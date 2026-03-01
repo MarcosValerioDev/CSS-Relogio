@@ -228,13 +228,13 @@ body {
 
 
     .boxThemes__themeTitle {
-        font-size: 2em;
+        font-size: 1.5em;
         text-align: center;
     }
 
     .themes__theme {
         width: 60px;
-        height: 60px;
+        height: 40px;
         border-radius: 100%;
         border: solid 1px #3e3c3c;
         margin-right: 20px;
