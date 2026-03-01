@@ -10,6 +10,7 @@
     font-variation-settings: "wdth" 100;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    touch-action: none;
 }
 
 :root {
